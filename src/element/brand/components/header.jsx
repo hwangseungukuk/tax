@@ -1,8 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
-import logo from "../../../assert/icon/logo.svg"
-import logo_w from '../../../assert/icon/logo-w.svg';
-import "../../../style/index.css" 
+import logo from "@/assert/icon/logo.svg"
+import logo_w from '@/assert/icon/logo-w.svg';
+import "@/style/index.css"
 
 export default function header_Line()
 {
