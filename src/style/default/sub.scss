@@ -1,0 +1,512 @@
+
+// 서브페이지 텍스트
+.pop-sub-text{
+    font-size: 13px ;
+    color: #0F1B2A;
+    &.line-grey{
+        line-height: 43px;
+        padding: 0 10px;
+        background-color: #F8F9FB;
+    }
+    &.file-guide{
+        color: #414D5C;
+    }
+}
+.pop-text{
+    font-size: 15px;
+}
+.pop-grey{
+    color: #73777A;
+}
+.row{
+    display: flex;
+    align-items: center;
+}
+.pop-sub-title{
+    font-size: 18px;
+    display: inline-block;
+    font-weight: 400;
+}
+// 공통헤더
+.header{
+    // 팝업
+    .header-btn-box{
+        display: flex;
+        align-items: center;
+        flex: 1;
+    }
+    .logout-btn-box{
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        font-size: 14px;
+    }
+    &.pop-header{
+        background-color: #fff;
+        .header-inner{
+            gap: 25px;
+        }
+        .logo{
+            display: block;
+        }
+        .logo-w{
+            display: none;
+        }
+        .gnb-ul{
+            color: #36363D;
+        }
+        .gnb-li:hover::after{
+            background-color: #36363D;
+        }
+        .mobile-gnb-btn{
+            .mobile-gnb-btn-line{
+                background-color: #000;
+            }
+        }
+        .mobile-header-title{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 600;
+            font-size: 20px;
+        }
+    }
+}
+
+// 팝업섹션
+.pop-section{
+    // padding-b: 0 28px 30px;
+    background-color: #fff;
+
+    .max-container{
+        margin: 0 auto;
+        padding-top: 105px;
+        padding-bottom: 30px;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-content: center;
+        gap: 20px         ;
+        .back-btn{
+            margin: 20px 0;
+        }
+        .pop-section-contents{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
+            max-width: 510px;
+            margin: 0 auto;
+            .pop-title{
+                margin-bottom: 30px;
+                display: inline-block;
+                align-self: flex-start;
+            }
+        }
+    }
+}
+
+// 탭 스테이트
+.tab-state{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+    .tab-num{
+        width: 25px;
+        height: 26px;
+        border-radius: 50%;
+        border: 1px solid #b5b6bb;
+        color: #b5b6bb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 700;
+        &.active{
+            background-color: #5925DC;
+            color: #fff;
+            border: none;
+        }
+    }
+}
+//탭콘텐츠
+.pop-max-contents{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.tab-box{
+    flex-direction: column;
+    gap: 20px;
+    display: none;
+
+    &.active{
+        display: flex;
+    }
+    .search-list-box{
+        border-top: 1px solid #CDD3DD;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        >.pop-sub-text{
+            color: #414D5C;
+        }
+        .search-ul{
+            max-height: 45vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            .search-li{
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                border-bottom: 1px solid #CDD3DD;
+            }
+            .row{
+                gap: 7px;
+            }
+            .search-info{
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                gap: 6px;
+                .company-name{
+                    font-weight: 600;
+                }
+                .address{
+                    white-space: pre-wrap;
+                }
+            }
+            .search-pick{
+                font-size: 14px;
+                border-radius: 4px;
+                border: 1px solid #CDD3DD;
+                background-color: #fff;
+                height: 32px;
+                width: 100%;
+                max-width: 70px;
+                cursor: pointer;
+            }
+        }
+    }
+    //공인인증서등 외부 콘텐츠 팝업 아닐시
+    .out-contents{
+        border: 1px solid red;
+        height: 150px;
+        width: 150px;
+        margin: 0 auto;
+    }
+    .certification-login-waiting{
+        display: flex;
+        flex-direction: column;
+        .indicator{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            height: 150px;
+            width: 150px;
+            margin: 0 auto;
+                .dot{
+                  display: block;
+                  width: 20px;
+                  height: 20px;
+                  background-color: #7a5af8;
+                  border-radius: 50%;
+                  &:first-child{
+                    animation: indi .9s linear infinite;
+                  }
+                  &:nth-child(2){
+                    animation: indi .9s 0.3s linear infinite;
+                }
+                  &:last-child{
+                    animation: indi .9s 0.6s linear infinite;
+                }
+           }
+        }
+        .indicator-text{
+            font-size: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+    }
+}
+//애니메이션인디케이터
+@keyframes indi {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+// 금액박스 
+.refund-box{
+    .pop-sub-text{
+        display: inline-block;
+        margin-bottom: 8px;
+    }
+    .refund-amount{
+        background-color: #F8F9FB;
+        border: 1px solid #CDD3DD;
+        font-size: 25px;
+        padding: 30px 0;
+        text-align: center;
+        border-radius: 4px;
+        line-height: 1.3;
+        .purple{
+            font-size: 30px;
+            font-weight: 600;
+        }
+        .count{
+            font-size: 35px;
+        }
+
+    }
+}
+// 탭4 테이블 조정.
+.tab-box{
+    .table-row{
+        >div:first-child{
+            max-width: 30%;
+        }
+        &-header{
+            background-color: #F8F9FB;
+        }
+    }
+}
+
+//링크박스
+.link-box{
+    background-color: #fff !important;
+    .pop-text{
+        font-weight: 600;
+    }
+    .link-contents{
+        display: flex;
+        gap: 38px;
+        .input-box{
+            flex: 1;
+        }
+    }
+    .full-btn{
+        max-width: 100%;
+    }
+    .link-clear{
+        background-color: #F5F3FF ;
+        color: #7a5af8;
+        border-color: #7a5af8;
+        font-size: 14px;
+    }
+}
+
+// .registration 박스
+
+.registration-box{
+
+    .pop-sub-text{
+        display: inline-block;
+        margin-bottom: 8px;
+    }
+    .guide-box{
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+
+        .guide-text{
+            font-size: 23px;
+            text-align: center;
+            line-height: 1.5;
+        }
+        .pop-text{
+            font-weight: 600;
+        }
+    }
+    .input-title{
+        width: 60px;
+    }
+}
+//공지사항
+
+.notice-ul{
+    display: flex;
+    flex-direction: column;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+.notice-li{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 15px 10px;
+    border-top: 1px solid #CDD3DD;
+    &:last-child{
+        border-bottom: 1px solid #CDD3DD;
+    }
+    .notice-title{
+        padding-right: 30px;
+        line-height: 1.3;
+        font-size: 14px;
+        color: #0F1B2A;
+        img{
+            display: inline-block;
+            left: 4px;
+        }
+        .underscore{
+            text-decoration: none;
+        }
+    }
+    &:hover{
+        .notice-title{
+            .underscore{
+                text-decoration: underline;
+            }
+        }
+
+    }
+    .notice-date{
+        font-size: 11px;
+        color: #8d99a8;
+    }
+    .arrow-btn{
+        position: absolute;
+        border: none;
+        background-color: #fff;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+.notice-contents{
+    border-bottom: 1px solid #CDD3DD;
+}
+
+// 공통
+.pop-inner-header{
+    border-bottom: 1px solid #CDD3DD;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 15px 10px;
+    border-top: 1px solid #CDD3DD;
+    .pop-inner-header-title{
+        padding-right: 20px;
+        font-size: 14px;
+        color: #0F1B2A;
+        font-weight: 600;
+        img{
+            display: inline-block;
+            left: 4px;
+        }
+    }
+    .pop-inner-header-date{
+        font-size: 11px;
+        color: #8D99A8;
+    }
+}
+.pop-inner-contents{
+    padding: 15px 10px;
+    font-size: 13px;
+    color: #404d5c;
+    // max-height: 55vh;
+    // overflow-y: auto;
+    span{
+        display: block;
+    }
+}
+.txt-14-600{font-size: 14px; color: #192534; margin-bottom: 10px; font-weight: 600; display: block;line-height: 1.5;}
+.txt-14{font-size: 14px; color: #192534; display: block;line-height: 1.5;}
+.txt-13{font-size: 13px; color: #414D5C; display: block;line-height: 1.5;}
+.m-b-10{margin-bottom: 10px;}
+.m-b-7{margin-bottom: 7px;}
+.m-b-5{margin-bottom: 5px;}
+.m-b-15{margin-bottom: 15px;}
+.m-b-30{margin-bottom: 30px;}
+
+table {
+    font-size: 13px;
+    width: 100%;
+    border: 1px solid #CDD3DD;
+    border-collapse: collapse;
+    color: #414D5C;
+  }
+  thead{
+    background-color: #EEF1F6;
+    text-align: center;
+  }
+  th, td {
+    border: 1px solid #CDD3DD;
+    padding: 10px;
+  }
+
+//   회사정보
+.com-info{
+    border-top: 1px solid #CDD3DD;
+    padding: 0 10px;
+    line-height: 42px;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #F8F9FB;
+}
+
+// 반응형
+//높이작을떄
+@media(max-height: 700px){
+    .pop-inner-contents{
+        height: 45vh;
+    }
+  }
+  //랩탑
+  @media(max-width: 1024px){
+    .header-inner{
+        .gnb{
+            .gnb-ul{
+                gap: 18px;
+            }
+        } 
+    } 
+  }
+  //모바일
+  @media(max-width: 768px){
+    .pop-header{
+        border-bottom: 1px solid #CDD3DD;
+        .logo-box{
+            display: none;
+        }
+    }
+    .pop-section{
+        .back-btn{
+            display: none;
+        }    
+        .input-btn{
+            padding: 0 !important;
+            max-width: 80px;
+        }
+        .pop-title{
+            margin-bottom: 22px !important;
+            font-size: 22px;
+        }
+        .tab-state{
+            display: none;
+        }
+    }
+    .refund-box{
+        .refund-amount{
+            font-size: 20px;
+            font-weight: 400;
+        }
+    }
+    // 로그인정보없을시
+    .noinfo-sc{
+        .noinfo-txt{
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
+          .noinfo-title{
+            margin-bottom: 0 !important;
+          }
+    }
+  }

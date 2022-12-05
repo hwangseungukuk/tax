@@ -1,0 +1,284 @@
+@charset "UTF-8";
+// global or util
+@import "default/reset";
+@import "default/layout";
+@import "default/sub";
+@import "default/input-box";
+@import "default/table";
+
+
+
+// 버튼 기본}
+button{
+  cursor: pointer !important;
+  border: none;
+  background-color: #fff;
+}
+
+button:disabled{
+  cursor: none !important;
+}
+.btn{
+    white-space: nowrap;
+    background-color: #5925DC;
+    border-radius: 10px;
+    border: none;
+    height: 64px;
+    padding: 0 70px;
+    max-width: 355px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    transition:opacity ease 1.5s, transform ease 1.5s !important;
+      &:hover{
+        background-color: #9B8AFB !important;
+      }
+      &-box{
+          display: flex;
+          gap: 10px;
+          button{
+            flex: 1;
+          }
+      }
+}
+
+.btn-w{
+    background-color: transparent;
+    border: 1px solid #fff;
+    height: 60px;
+    font-size: 20px;
+    padding: 0 50px;
+}
+
+.line-btn{
+  height: 27px;
+  border: 1px solid #cdd3dd;
+  font-size: 13px;
+  color: #73777A;
+  border-radius: 20px; 
+  background-color: #fff ;
+  padding: 5px 10px ;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  &:hover{
+      background-color: #F8F9FB;
+  }
+
+}
+.purple-btn{
+  color: #7a5af8;
+  border: 1px solid #7a5af8;
+}
+.form-btn{
+  height: 42px;
+  border-radius: 4px ;
+  font-size: 14px;
+  width: 100%;
+  font-weight: 400;
+  &:hover{
+    background-color: #5925DC !important;
+    color: #fff;
+  }
+}
+
+.sub-btn{
+  font-size: 23px; 
+  max-width: 510px;
+  height: 120px;
+  width: 100%;
+  padding: 0;
+  border: 1px solid #CCCCCC;
+  background-color: #fff;
+  color: #5e6066;
+  &:hover{
+    border-color: #9B8AFB;
+    background-color: #F5F3FF !important;
+    color: #5925DC;
+  }
+}
+.kakao{
+  background-color: #fee500;
+  color: #000716;
+  border: none;
+  width: 100% !important;
+  height: 120px !important;
+  max-width: 100% !important;
+  font-size: 21px !important;
+  &:hover{
+    border-color: none;
+    background-color: #fee500 !important;
+    color: #000716;
+  }
+}
+ .logout-btn,.login-btn{
+  background-color: #fff;
+  border-radius: 20px;
+  height: 27px;
+  font-size: 14px;
+  padding: 0 15px;
+
+}
+// 기본 텍스트 크기
+.visual-title{
+  font-size: 60px;
+  font-weight: 600;
+}
+.visual-sub-title{
+  font-size: 20px;
+}
+.section-title{
+  font-size: 50px;
+  font-weight: 600;
+}
+.text{
+  font-size: 23px;
+  line-height: 1.5;
+
+}
+.pop-title{
+  font-size: 32px;
+  font-weight: 600;
+}
+.purple{color: #5925DC;}
+.grey{  color: #5E6066;}
+.underscore{
+  text-decoration: underline;
+  text-underline-position: under;
+}
+// 메인색
+.main{background-color: #F5F5F5;}
+
+// 최대 넓이 제한
+.max-container{
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+//col-line
+.col-line{
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  background-color: #ccc;
+}
+
+//보더박스
+.border-box{
+  background-color: #F8F9FB;
+  border: 1px solid #CDD3DD;
+  border-radius: 4px;
+  padding: 20px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  button{
+    max-width: 115px;
+    padding: 0;
+  }
+}
+.windowHeight{
+  position: fixed;
+  background-color: #40a0c5;
+  color: #fff;
+  bottom: 0;
+  left: 0;
+  z-index: 123456789789;
+  padding: 10px 25px;
+}
+
+//피시에서 안보이기
+.pc-hide{
+  display: none !important;
+}
+.mobile-br{
+  display: none !important;
+}
+
+// 반응형
+//QHD
+@media(min-width: 1921px){
+  // 기본 텍스트 크기
+.visual-title{
+  font-size: 80px;
+  font-weight: 600;
+}
+.visual-sub-title{
+  font-size: 30px;
+}
+.section-title{
+  font-size: 65px;
+  font-weight: 600;
+}
+.text{
+  font-size: 33px;
+}
+}
+//랩탑
+@media(max-width: 1024px){
+  // 기본 텍스트 크기
+  .visual-title{
+    font-size: 45px;
+    font-weight: 600;
+  }
+  .visual-sub-title{
+    font-size: 16px;
+  }
+  .section-title{
+    font-size: 45px;
+    font-weight: 600;
+  }
+  .text{
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}
+//모바일
+@media(max-width: 768px){
+  // 모바일 버튼
+  .btn{
+    padding: 0;
+    width: 100%;
+    max-width: 240px;
+    height: 50px;
+    font-size: 16px;
+    margin: 0 auto;
+  }
+  // 기본 텍스트 크기
+  .visual-title{
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .visual-sub-title{
+    font-size: 14px;
+    text-align: center;
+  }
+  .section-title{
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .text{
+    font-size: 15px;
+    text-align: center;
+  }
+  // 모바일에서보이기
+  .mobile-hide{
+    display: none !important;
+  }
+  .pc-hide{
+      display: flex !important;
+  }
+  .mobile-br{ 
+  // moblie-br 보이기
+      display: block !important;
+  }
+  .pc-br{
+      display: none !important;
+  }
+
+}

@@ -1,0 +1,31 @@
+.table-box .table-unit {
+  font-size: 13px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: end;
+}
+.table-box .table {
+  border: 1px solid #cdd3dd;
+}
+.table-box .table .table-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.table-box .table .table-row > div {
+  border-right: 1px solid #cdd3dd;
+  border-bottom: 1px solid #cdd3dd;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  font-size: 14px;
+  color: #192534;
+  flex: 1;
+  letter-spacing: -5%;
+}
+.table-box .table .table-row > div:last-child {
+  border-right: none;
+}
+.table-box .table .table-row:last-child > div {
+  border-bottom: none;
+}
