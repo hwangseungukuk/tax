@@ -16,25 +16,27 @@ import RequestForRefundKakaoLogin from './element/brand/requestForRefund/Request
 import FindCompany from './element/brand/requestForRefund/findCompany.jsx'
 
 const router = createBrowserRouter([
-  {
-      path: "", element: <Header/>,
-      children: [
-        { path: "", element: <Home/> },
-        { path: "registration", element: <Registration /> },
-        { path: "linked", element: <Linked /> },
-        { path: "privacyStatement", element: <PrivacyStatement /> },
-        { path: "termsOfService", element: <TermsOfService /> },
-        { path: "qa", element: <Qa/> }, 
-        { path: "myInfo", element: <MyInfo /> },
-        { path: "requestForRefund", element: <RequestForRefund />,
-          children:[
-            { path: "kakaoLogin", element: <RequestForRefundKakaoLogin />},
-            { path: "findCompany", element: <FindCompany />},
-          ]
-        }
-      ]
-  },
+  { path: "", element: <Home/> },
+  { path: "brand", element: <Header/>, 
+    children: [
+      { path: "registration", element: <Registration /> },
+      { path: "linked", element: <Linked /> },
+      { path: "privacyStatement", element: <PrivacyStatement /> },
+      { path: "termsOfService", element: <TermsOfService /> },
+      { path: "qa", element: <Qa/> }, 
+      { path: "myInfo", element: <MyInfo /> },
+      { path: "requestForRefund",
+        children:[
+          { path: "", element: <RequestForRefund />},
+          { path: "kakaoLogin", element: <RequestForRefundKakaoLogin />},
+          { path: "findCompany", element: <FindCompany />},
+        ]
+      }
+    ]
+  }
 ]);
+
+// 공지사항 안만듬 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

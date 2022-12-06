@@ -404,7 +404,7 @@ table {
   width: 5%;
   height: 640px;
   transition: all ease-in-out 1s;
-  background-image: url(/Tax/assert/img/team.png);
+  background-image: url(../assert/img/team.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
