@@ -1,9 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
 
-export default function findCompany()
+export default function FindCompany()
 {
-    console.log("dd");
     return( <div>
         
     <Outlet /></div> );

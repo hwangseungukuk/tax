@@ -2,20 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 
-import Header from './element/brand/components/header.jsx'
-import Home from './element/brand/home.jsx'
-import Registration from './element/brand/registration.jsx'
-import Linked from './element/brand/linked.jsx'
-import PrivacyStatement from './element/brand/privacyStatement.jsx'
-import TermsOfService from './element/brand/termsOfService.jsx'
-import Qa from './element/brand/qa.jsx'
-import MyInfo from './element/brand/myInfo'
+import Header from '@/Element/brand/Components/Header.jsx'
+import Home from '@/Element/brand/Home.jsx'
+import Registration from '@/Element/brand/Registration.jsx'
+import Linked from '@/Element/brand/Linked.jsx'
+import PrivacyStatement from '@/Element/brand/PrivacyStatement.jsx'
+import TermsOfService from '@/Element/brand/TermsOfService.jsx'
+import Qa from '@/Element/brand/Qa.jsx'
+import MyInfo from '@/Element/brand/MyInfo.jsx'
+import RequestForRefund from '@/Element/brand/RequestForRefund/RequestForRefund.jsx'
+import RequestForRefundKakaoLogin from '@/Element/brand/RequestForRefund/RequestForRefundKakaoLogin.jsx'
+import FindCompany from '@/Element/brand/RequestForRefund/FindCompany.jsx'
+import Notice from '@/Element/brand/Notice/Notice.jsx'
 
-import RequestForRefund from './element/brand/requestForRefund/requestForRefund.jsx'
-import RequestForRefundKakaoLogin from './element/brand/requestForRefund/RequestForRefundKakaoLogin.jsx'
-import FindCompany from './element/brand/requestForRefund/findCompany.jsx'
-
-const router = createBrowserRouter([
+const Router = createBrowserRouter([
   { path: "", element: <Home/> },
   { path: "brand", element: <Header/>, 
     children: [
@@ -25,6 +25,7 @@ const router = createBrowserRouter([
       { path: "termsOfService", element: <TermsOfService /> },
       { path: "qa", element: <Qa/> }, 
       { path: "myInfo", element: <MyInfo /> },
+      { path: "notice", element: <Notice /> },
       { path: "requestForRefund",
         children:[
           { path: "", element: <RequestForRefund />},
@@ -40,6 +41,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router= { router } />
+    <RouterProvider router= { Router } />
   </React.StrictMode>
 )

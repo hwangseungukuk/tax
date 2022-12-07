@@ -1,5 +1,5 @@
 
-export default function main()
+export default function Main()
 {
    const header = document.querySelector(".header");
    const headerHeight = header.getBoundingClientRect().height;
@@ -7,17 +7,17 @@ export default function main()
    const applicationSc = document.querySelector(".application-sc")
    const vscObjAni = document.querySelectorAll('.visual-sc .obj-ani'); 
    // 모바일 헤더~
-   const gnb = document.querySelector(".gnb");
-   const gnbBtn = document.querySelector(".mobile-gnb-btn");
-   const topBtn = document.querySelector(".top-btn")
+   //const gnb = document.querySelector(".gnb");
+   //const gnbBtn = document.querySelector(".mobile-gnb-btn");
+   //const topBtn = document.querySelector(".top-btn")
 
-   topBtn.addEventListener('click',()=>{
-      window.scrollTo(0,0)
-   })
+   // topBtn.addEventListener('click',()=>{
+   //    window.scrollTo(0,0)
+   // })
 
-   gnbBtn.addEventListener('click', function(){
-      gnb.classList.toggle("moblie-gnb")
-   })
+   // gnbBtn.addEventListener('click', function(){
+   //    gnb.classList.toggle("moblie-gnb")
+   // })
 
       // 비주얼섹션 초반 애니메이션
    setTimeout(() => {
@@ -25,7 +25,7 @@ export default function main()
          obj.classList.add("obj-ani-on")
       }
       },)
-
+      
       // 스크롤
    document.addEventListener('scroll', () => {
       const windowHeight = document.querySelector(".windowHeight") //버튼

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import Main from '@/element/main.js'
+import Main from '@/element/Main.js'
 
 import Mobile from '@/assert/icon/mobile.svg'
 import Hyean from '@/assert/icon/hyean.svg'
@@ -14,9 +14,13 @@ import "@/style/index.css"
 export default function home()
 {
     useEffect(()=>{Main()})
-    
-    return(<div className= "main">
 
+    var [gnb,setGnb] = useState("gnb");
+
+    function GnbChager()
+    { if(gnb == "gnb") { setGnb("gnb moblie-gnb") } else { setGnb("gnb") } }
+
+    return(<div className= "main">
         <header className="header">
             <div className="header-inner max-container">
                 
@@ -26,8 +30,7 @@ export default function home()
                         <img src= {logo_w} className="logo-w" />
                     </a>
                 </div>
-                
-                <div className="gnb">
+                <div className= {`${gnb}`} onClick={()=>{ GnbChager() }}>
                     <div className="mobile-gnb-btn">
                         <span className="mobile-gnb-btn-line"></span>
                         <span className="mobile-gnb-btn-line"></span>
@@ -223,7 +226,7 @@ export default function home()
 
             </div>
 
-            <button className="top-btn">
+            <button className="top-btn" onClick={()=>{window.scrollTo(0,0)}}>
                 <img src= { Top_Arrow }/>
             </button>
             
