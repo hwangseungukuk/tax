@@ -13,17 +13,27 @@ import "@/style/index.css"
 
 export default function home()
 {
-    useEffect(()=>{Main()})
-
+    //useEffect(()=>{Main()})
     var [gnb,setGnb] = useState("gnb");
 
-    function GnbChager()
-    { if(gnb == "gnb") { setGnb("gnb moblie-gnb") } else { setGnb("gnb") } }
+    function Header()
+    {
+        //useEffect(()=>{Update()})
+        var [header,setHeader] = useState("header");
+        var HeaderHeight = 100; 
 
-    return(<div className= "main">
-        <header className="header">
+        useEffect(()=> {
+            document.addEventListener('scroll', handleScroll);
+        })
+
+        const handleScroll = () =>{
+            if(HeaderHeight < window.scrollY) { setHeader("header white"); }
+            else if(header == "header white") { setHeader("header"); }
+        }
+
+        return(
+        <header className={`${header}`}>
             <div className="header-inner max-container">
-                
                 <div className="logo-box">
                     <a href="/">
                         <img src= {logo} className="logo" />
@@ -50,9 +60,54 @@ export default function home()
                     </ul>
                 </div>
             </div>
-        </header>
+        </header>)
+    }
 
-        <section className="section visual-sc">
+    // 초반 애니메이션을 넣는다. -> 스크롤을 통해서 애니메이션을 사용한다. 
+
+    function Main()
+    {
+        var [obj, setObj] = useState(2);
+        var objAni = document.querySelectorAll('.obj-ani'); 
+        var windowH = window.innerHeight / 1.1;
+        var objVulme = 2;
+        useEffect(()=> { 
+            document.addEventListener('scroll', handleScroll) 
+            StartAni()
+        } )
+
+        const handleScroll = () =>{
+            var i =0; 
+            for(i=0; i < objAni.length; i++){
+                const onjAniTop = objAni[i].getBoundingClientRect().top + window.pageYOffset;
+                if(window.scrollY < onjAniTop - windowH) 
+                { 
+                    // 여기에 도달햇을때. 애니메이션을 세팅해준다.
+                    //objVulme = i;
+                    break; 
+                } 
+                
+            }
+
+            if(i == 0) { return; }
+            if(obj < i) { console.log(obj +"/"+i); setObj(i); }
+            
+        }
+
+        // 초반섹션? 
+        const StartAni =() =>
+        {
+            //var free = document.querySelectorAll(".section");
+            //console.log(free);
+            //console.log(free[0].clientHeight); // 높이 
+            // 현재의 높이와 같이 계산 그리고 그것보다 낮으면 애니메이션 재생 
+            // 안됌 ㅋㅋ 
+            // e
+        }
+
+
+        return(<div>
+            <section className="section visual-sc">
             
             <h5 className="visual-sub-title obj-ani">
                 국세 기본법 45조 2제1항
@@ -231,6 +286,29 @@ export default function home()
             </button>
             
         </footer>
+            
+        </div>)
+    }
 
+    /*
+       const asc = document.querySelector('.application-sc')
+   asc.addEventListener('mouseover',()=>{
+            // 카운트를 적용시킬 요소
+            const $counter = document.querySelector(".count");
+            // 목표 수치
+            const max = 7000000 + 1;
+            
+            setTimeout(() => counter($counter, max),1800);
+   },{ once : true })
+    */
+
+
+
+    function GnbChager()
+    { if(gnb == "gnb") { setGnb("gnb moblie-gnb") } else { setGnb("gnb") } }
+
+    return(<div className= "main">
+        { Header() }
+        { Main() }
     <Outlet /> </div> );
 }

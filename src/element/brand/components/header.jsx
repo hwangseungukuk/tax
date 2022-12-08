@@ -9,6 +9,7 @@ import Sub from '@/element/Sub.js'
 export default function Header()
 {
     var [gnb, setGnb] = useState("gnb pop-gnb");
+    
     useEffect(()=>{Sub()});
 
     function GnbChage()

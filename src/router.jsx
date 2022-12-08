@@ -40,7 +40,7 @@ const Router = createBrowserRouter([
 // 공지사항 안만듬 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RouterProvider router= { Router } />
-  </React.StrictMode>
+  // </React.StrictMode>
 )
