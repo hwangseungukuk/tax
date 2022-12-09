@@ -63,7 +63,6 @@ export default function Main()
       }else{
          wide.classList.remove('wide-ani')
       }
-
    })
    // 카운팅
    const counter = (counter, max) => {
