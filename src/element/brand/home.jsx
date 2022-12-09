@@ -10,18 +10,20 @@ import logo_w from '@/assert/icon/logo-w.svg';
 
 import "@/style/index.css"
 
-// 핸드폰 이미지 안뜸 
+// 애니메이션이 너무 빨리 뜸. ㅜㅠ 
+// 와이드 이미지 넣기 
 
 export default function home()
 {
-    var [gnb,setGnb] = useState("gnb");
-
     function Header()
     {
-        //useEffect(()=>{Update()})
+        var [gnb,setGnb] = useState("gnb");
         var [header,setHeader] = useState("header");
         var HeaderHeight = 100; 
 
+        function GnbChager()
+        { if(gnb == "gnb") { setGnb("gnb moblie-gnb") } else { setGnb("gnb") } }
+    
         useEffect(()=> {
             document.addEventListener('scroll', handleScroll);
         })
@@ -65,13 +67,12 @@ export default function home()
 
     function Main()
     {
-        var [obj, setObj] = useState(0);
+        var [obj, setObj] = useState(1);
         var windowH = window.innerHeight / 1.1;
         var classNum = 0;
 
         useEffect(()=> { 
             document.addEventListener('scroll', handleScroll)
-            Init()
         } )
 
         const handleScroll = () => {
@@ -84,20 +85,9 @@ export default function home()
             if(objconut == null) { return } else { setObj(obj+objconut+1) }
         }
 
-
-        //이제 숫자만 잘바꿔주면된다. 
-
-        var classNum = 0;
-        function Init(){ 
-            if(obj == 0){ 
-                setObj(4)
-                // 시간 넣기..? 
-            }
-        }
-
         const ClassAni = (text) => { 
             text += " obj-ani"
-            if(obj > classNum) { text += "-on"; }
+            if(obj > classNum) { text += " obj-ani-on"; }
             classNum++; return text;
         }
 
@@ -192,7 +182,9 @@ export default function home()
                             <span className="card-text ">자세한 환급액은 더낸세금 찾기</span>
                         </span>
                     </div>
-                    {/* <div className="phone"><img src= { Mobile } /></div> */}
+                    <div className="phone">
+                        <img src= { Mobile } />
+                    </div>
                 </div>
             </section>
 
@@ -208,7 +200,7 @@ export default function home()
                 <button className={`${ClassAni("btn btn-w")}`}>
                     <a href="brand/requestForRefund">더낸세금 바로찾기</a>
                 </button>
-                {/* <div className={`${ClassAni("wide-img")}`}/>  */}
+                <div className={`${ClassAni("wide-img")}`}/> 
             </section>
 
             <section className="team-sub-sc section">
@@ -279,9 +271,6 @@ export default function home()
             </footer>
         </div>)
     }
-
-    function GnbChager()
-    { if(gnb == "gnb") { setGnb("gnb moblie-gnb") } else { setGnb("gnb") } }
 
     return(<div className= "main">
         { Header() }
