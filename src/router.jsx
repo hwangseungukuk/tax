@@ -11,9 +11,8 @@ import TermsOfService from '@/Element/brand/TermsOfService.jsx'
 import Qa from '@/Element/brand/Qa.jsx'
 import MyInfo from '@/Element/brand/MyInfo.jsx'
 import RequestForRefund from '@/Element/brand/RequestForRefund/RequestForRefund.jsx'
-import RequestForRefundKakaoLogin from '@/Element/brand/RequestForRefund/RequestForRefundKakaoLogin.jsx'
 import FindCompany from '@/Element/brand/RequestForRefund/FindCompany.jsx'
-import Notice from '@/Element/brand/Notice/Notice.jsx'
+import Notice from '@/Element/brand/Notice.jsx'
 
 const Router = createBrowserRouter([
   { path: "", element: <Home/> },
@@ -29,7 +28,6 @@ const Router = createBrowserRouter([
       { path: "requestForRefund",
         children:[
           { path: "", element: <RequestForRefund />},
-          { path: "kakaoLogin", element: <RequestForRefundKakaoLogin />},
           { path: "findCompany", element: <FindCompany />},
         ]
       }

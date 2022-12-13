@@ -1,16 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
-import LeftArrow from "@/assert/icon/left-arrow.svg"
+import * as Func from '@/element/brand/Components/Func.jsx'
 
 export default function qa()
 {
     return(<section className="pop-section">
     <div className="max-container">
-                <div className="back-btn">
-                    <button className="line-btn " onClick={()=>{ history.go(-1) }}>
-                        <img src= { LeftArrow } />뒤로가기
-                    </button>
-                </div>
+                { Func.BackBtn() }
                 <div className="pop-section-contents">
                         <span className="pop-title">
                             문의하기

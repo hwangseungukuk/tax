@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import "@/style/index.css"
 import Logo from '@/assert/icon/logo.svg'
 import LogoW from '@/assert/icon/logo-w.svg'
 import ArrowBack from "@/assert/icon/arrow-back.svg"
-import Sub from '@/element/Sub.js'
 
 export default function Header()
 {
     var [gnb, setGnb] = useState("gnb pop-gnb");
-    
-    useEffect(()=>{Sub()});
+    var navigate = useNavigate();
+
+    function Nav(nav) { nav == "/" ? navigate(nav) : navigate("/brand/"+nav) }
 
     function GnbChage()
     { if(gnb == "gnb pop-gnb") { setGnb("gnb pop-gnb moblie-gnb") } else { setGnb("gnb pop-gnb") } }
@@ -41,20 +41,21 @@ export default function Header()
                         <span className="mobile-gnb-btn-line"></span>
                     </div>
                     <ul className="gnb-ul">
-                        <li className="gnb-li mobile-hide"><a href="qa">문의하기</a></li>
-                        <li className="gnb-li mobile-hide"><a href="notice">공지사항</a></li>
-                        <li className="gnb-li mobile-hide"><a href="linked">인증관리</a></li>
-                        <li className="gnb-li mobile-hide"><a href="privacyStatement">개인정보취급방침</a></li>
-                        <li className="gnb-li mobile-hide"><a href="termsOfService">이용약관</a></li>
+                        <li className="gnb-li mobile-hide" onClick={()=>Nav("qa")}>문의하기</li>
+                        <li className="gnb-li mobile-hide" onClick={()=>Nav("notice")}>공지사항</li>
+                        <li className="gnb-li mobile-hide" onClick={()=>Nav("linked")}>인증관리</li>
+                        <li className="gnb-li mobile-hide" onClick={()=>Nav("privacyStatement")}>개인정보취급방침</li>
+                        <li className="gnb-li mobile-hide" onClick={()=>Nav("termsOfService")}>이용약관</li>
                         
-                        <li className="gnb-li pc-hide"><a href="">서비스 소개</a></li>
-                        <li className="gnb-li pc-hide"><a href="notice">공지사항</a></li>
-                        <li className="gnb-li pc-hide"><a href="qa">문의하기</a></li>
-                        <li className="gnb-li pc-hide"><a href="termsOfService">개인정보취급방침</a></li>
-                        <li className="gnb-li pc-hide"><a href="privacyStatement">서비스 이용약관</a></li>
-                        <li className="gnb-li pc-hide login-hide"><a href="requestForRefund/kakaoLogin">로그인</a></li>
-                        <li className="gnb-li pc-hide"><a href="myInfo">내회사정보 </a>
-                        <button className="logout-btn purple-btn">로그아웃</button></li>
+                        <li className="gnb-li pc-hide" onClick={()=>Nav("/")}>서비스 소개</li>
+                        <li className="gnb-li pc-hide" onClick={()=>Nav("notice")}>공지사항</li>
+                        <li className="gnb-li pc-hide" onClick={()=>Nav("qa")}>문의하기</li>
+                        <li className="gnb-li pc-hide" onClick={()=>Nav("termsOfService")}>개인정보취급방침</li>
+                        <li className="gnb-li pc-hide" onClick={()=>Nav("privacyStatement")}>서비스 이용약관</li>
+                        <li className="gnb-li pc-hide login-hide" onClick={()=>Nav("requestForRefund/kakaoLogin")}>로그인</li>
+                        <li className="gnb-li pc-hide" onClick={()=>Nav("myInfo")}>내회사정보
+                            <button className="logout-btn purple-btn">로그아웃</button>
+                        </li>
                     </ul>
                 </div>
             </div>

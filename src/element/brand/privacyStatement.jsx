@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
-import LeftArrow from "@/assert/icon/left-arrow.svg"
+
+import * as Func from '@/element/brand/Components/Func.jsx'
 
 export default function privacyStatement()
 {
@@ -8,11 +9,7 @@ export default function privacyStatement()
     return( <div>
         <section className="pop-section">
             <div className="max-container">
-                <div className="back-btn">
-                    <button className="line-btn" onClick={()=>{ history.go(-1) }}>
-                        <img src= { LeftArrow } />뒤로가기
-                    </button>
-                </div>
+                {Func.BackBtn()}
                 <div className="pop-section-contents">
                     <span className="pop-title"> 개인정보처리방침 </span>
                     <div className="pop-max-contents">

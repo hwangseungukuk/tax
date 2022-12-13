@@ -10,7 +10,7 @@ import logo_w from '@/assert/icon/logo-w.svg';
 
 import "@/style/index.css"
 
-export default function home()
+export default function Home()
 {
     var navigate = useNavigate();
     function Nav(nav) { nav == "/" ? navigate(nav) : navigate("brand/"+nav) }
