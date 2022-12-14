@@ -9,8 +9,7 @@ import TotalLogo from "@/assert/icon/total-logo.svg"
 export default function linked()
 {
     return(<div>
-    
-    <section className="pop-section">
+        <section className="pop-section">
             <div className="max-container">
                 { Func.BackBtn() }
                 <div className="pop-section-contents">
@@ -69,6 +68,5 @@ export default function linked()
                 </div>
             </div>
         </section>
-    
     <Outlet /></div>);
 }

@@ -11,6 +11,7 @@ import Dummy from '@/Dummy.json'
 
 export default function Notice()
 {    
+    var [list, setList] = useState(10);
     var [look, setLook] = useState(null);
 
     var dataBase = Dummy.Notice

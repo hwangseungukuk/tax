@@ -12,11 +12,11 @@ export function BackBtn()
     )
 }
 
-export function BackBtn(setState,index)
+export function StateBtn(setState, index)
 {
     return(
         <div className="back-btn">
-            <button className="line-btn " onClick={()=>{ setState(index) }}>
+            <button className="line-btn " onClick={()=>{ history.go(-1) }}>
                 <img src= { LeftArrow } />뒤로가기
             </button>
         </div>

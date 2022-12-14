@@ -18,11 +18,9 @@ export default function Header()
     return(<div className="main">
         <header className="header pop-header">
             <div className="header-inner max-container">
-                <div className="logo-box">
-                    <a href="/">
+                <div className="logo-box" onClick={()=>Nav("/")}>
                         <img src= {Logo} className="logo" />
                         <img src= {LogoW} className="logo-w" />
-                    </a>
                 </div>
                 <div className="header-btn-box">
                     <button className="back-btn pc-hide" onClick={()=>{ history.go(-1); }}> 

@@ -5,7 +5,6 @@ import * as Func from '@/element/brand/Components/Func.jsx'
 
 export default function privacyStatement()
 {
-    
     return( <div>
         <section className="pop-section">
             <div className="max-container">

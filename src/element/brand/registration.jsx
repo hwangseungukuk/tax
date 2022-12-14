@@ -18,13 +18,14 @@ export default function registration()
         dots.push("tab-num");
     }
 
-    function StepChagere(num) {
-        // 버튼 눌렀을때 조건? 넣기
-        setStep(num);
-    }
+    function Step0() { 
+        
+        function StepChagere() {
+            // 버튼 눌렀을때 조건? 넣기
+            setStep(1);
+        }
 
-    function Step0() { return(
-        <div className="tab-box tab1 active">
+        return( <div className="tab-box tab1 active">
             <span className="pop-title">공동인증센터 인증서등록</span>
             <div className="pop-max-contents">
                 <div className="registration-box">
@@ -37,14 +38,20 @@ export default function registration()
                 <span className="pop-sub-text">공인인증 프로그램을 설치하셨나요? <span className="underscore purple">다운로드하기</span></span>
                 <div className="btn-box">
                     <button className="form-btn line-btn">다운로드</button>
-                    <button className="form-btn purple-btn line-btn" onClick={()=>{StepChagere(1)}}>설치완료</button>
+                    <button className="form-btn purple-btn line-btn" onClick={()=>{StepChagere()}}>설치완료</button>
                 </div>
             </div>
         </div>)
     }
 
-    function Step1() { return( 
-        <div className="tab-box tab2 active">
+    function Step1() {
+        
+        function StepChagere() {
+            // 버튼 눌렀을때 조건? 넣기
+            setStep(2);
+        }
+
+        return( <div className="tab-box tab2 active">
             <span className="pop-title">공동인증센터 인증서등록</span>
             <div className="pop-max-contents">
                 <div className="registration-box">
@@ -62,7 +69,7 @@ export default function registration()
                             <div className="input-contents">
                                 <span className="input-title">인증코드</span>
                                 <input type="text"/>
-                                <button className="form-btn line-btn purple-btn" onClick={()=>{StepChagere(2)}}>확인</button>
+                                <button className="form-btn line-btn purple-btn" onClick={()=>{StepChagere()}}>확인</button>
                             </div>
                         </div>
                     </div>
@@ -71,8 +78,8 @@ export default function registration()
         </div>)
     }
 
-    function Step2() { return(
-        <div className="tab-box tab3 active">
+    function Step2() { 
+        return(<div className="tab-box tab3 active">
             <span className="pop-title">공동인증센터 인증서등록</span>
             <div className="pop-max-contents">
                 <div className="registration-box">
@@ -101,11 +108,9 @@ export default function registration()
                         <span className={`${dots[2]}`}>3</span>
                     </div>
 
-                    <div className="pop-max-contents"> {{
-                        0: Step0(),
-                        1: Step1(),
-                        2: Step2()
-                    }[step]} </div>
+                    <div className="pop-max-contents"> 
+                        {{ 0: Step0(), 1: Step1(), 2: Step2() }[step]} 
+                    </div>
                 </div>
            </div>
         </section>
