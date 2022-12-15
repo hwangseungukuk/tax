@@ -50,7 +50,7 @@ export default function Header()
                         <li className="gnb-li pc-hide" onClick={()=>Nav("qa")}>문의하기</li>
                         <li className="gnb-li pc-hide" onClick={()=>Nav("termsOfService")}>개인정보취급방침</li>
                         <li className="gnb-li pc-hide" onClick={()=>Nav("privacyStatement")}>서비스 이용약관</li>
-                        <li className="gnb-li pc-hide login-hide" onClick={()=>Nav("requestForRefund/kakaoLogin")}>로그인</li>
+                        <li className="gnb-li pc-hide login-hide" onClick={()=>Nav("requestForRefund")}>로그인</li>
                         <li className="gnb-li pc-hide" onClick={()=>Nav("myInfo")}>내회사정보
                             <button className="logout-btn purple-btn">로그아웃</button>
                         </li>
@@ -60,3 +60,4 @@ export default function Header()
         </header>
     <Outlet/></div>);
 }
+

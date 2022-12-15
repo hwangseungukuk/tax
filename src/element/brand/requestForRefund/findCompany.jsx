@@ -7,7 +7,7 @@ import Dots from '@/assert/icon/dots.svg'
 
 export default function FindCompany()
 {
-    var [ step, setStep ] = useState(4); 
+    var [ step, setStep ] = useState(0); 
     var dots = []
     var count = 0;
 
@@ -26,7 +26,6 @@ export default function FindCompany()
 
     function Step1() { 
         function StepChagere() {
-            // 조건
             setStep(1);
         }
 
