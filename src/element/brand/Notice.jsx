@@ -15,6 +15,7 @@ export default function Notice()
     var dataBase = Dummy.Notice.slice(0,list);
     var num = 0;
 
+    look != null? Func.SetBackBtn(setLook,null) : Func.BackBtnClear()
 
     const ListVulme = () => {
         if(list == Dummy.Notice.length) { return; }
@@ -48,7 +49,7 @@ export default function Notice()
     return(<div>
         <section className="pop-section">
             <div className="max-container">
-                { look == null? Func.BackBtn() : Func.BackBtn(setLook,null) }
+                { Func.BackBtn() }
                 <div className="pop-section-contents">
                         <span className="pop-title"> 공지사항</span>
                         <div className="pop-max-contents">

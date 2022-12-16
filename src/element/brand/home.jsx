@@ -8,10 +8,12 @@ import Top_Arrow from '@/assert/icon/top-arrow.svg'
 import logo from "@/assert/icon/logo.svg"
 import logo_w from '@/assert/icon/logo-w.svg';
 import "@/style/index.css"
+import Dummy from '@/Dummy.json' // 임시 데이터 
 
 export default function Home()
 {
     var navigate = useNavigate();
+
     function Nav(nav) { nav == "/" ? navigate(nav) : navigate("brand/"+nav) }
 
     function Header()
@@ -52,10 +54,13 @@ export default function Home()
                         <li className="gnb-li pc-hide" onClick={()=>{Nav("qa")}}>문의하기</li>
                         <li className="gnb-li mobile-hide" onClick={()=>{Nav("privacyStatement")}}>개인정보취급방침</li>
                         <li className="gnb-li mobile-hide" onClick={()=>{Nav("termsOfService")}}>이용약관</li>
-                        <li className="gnb-li pc-hide login-hide" onClick={()=>{Nav("requestForRefund")}}>로그인</li>
-                        <li className="gnb-li pc-hide" onClick={()=>Nav("myInfo")}>내회사정보
-                            <button className="logout-btn purple-btn">로그아웃</button>
-                        </li>
+                        {
+                            Dummy.Login == false 
+                            ? <li className="gnb-li pc-hide login-hide" onClick={()=>{Nav("requestForRefund")}}>로그인</li>
+                            : <li className="gnb-li pc-hide" onClick={()=>Nav("myInfo")}>내회사정보
+                                <button className="logout-btn purple-btn">로그아웃</button>
+                              </li>
+                        }
                     </ul>
                 </div>
             </div>

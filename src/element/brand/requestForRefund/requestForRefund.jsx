@@ -9,6 +9,8 @@ export default function RequestForRefund()
     var [kakao, setKakao] = useState(null)
     var navigate = useNavigate();
 
+    if(kakao == null) { Func.BackBtnClear() } else { Func.SetBackBtn(setKakao,null) }
+
     function KakaoBtn()
     {
         navigate("/brand/requestForRefund/findCompany")
@@ -34,14 +36,7 @@ export default function RequestForRefund()
     return( <div>
         <section className="pop-section">
             <div className="max-container">
-                { 
-                    kakao == null? Func.BackBtn() 
-                    :<div className="back-btn">
-                        <button className="line-btn " onClick={()=>{ setKakao(null) }}>
-                            <img src= { LeftArrow } />뒤로가기
-                        </button>
-                    </div>
-                }
+                { Func.BackBtn() }
                 { kakao == null? Main() : Sub() }
             </div>  
         </section>

@@ -11,6 +11,8 @@ export default function FindCompany()
     var dots = []
     var count = 0;
 
+    Func.BackBtnClear()
+
     for(var i= 0; i < 5; i++) {
         if(i == step) { dots.push("tab-num active"); }
         else { dots.push("tab-num") }
@@ -72,8 +74,8 @@ export default function FindCompany()
 
         return(<div className="pop-section-contents tab-box tab2 active">
             <span className="pop-title">회사 정보 확인</span>
-            <form className="pop-max-contents" onsubmit="return false;">
-                <div iv className="input-box">
+            <form className="pop-max-contents">
+                <div className="input-box">
                     <span className="input-title">회사명</span>
                     <div className="input-contents"><input type="text" placeholder="스마트비즈(주)" readOnly/></div>
                 </div>
@@ -117,15 +119,16 @@ export default function FindCompany()
                         <span className="dot"></span>
                     </div>
                     <span className="indicator-text">
-                        <span className="purple">지난 5년간의 예상 환급금을 계산중입니다.</span> <br/>
+                        <span className="purple">지난 5년간의 예상 환급금을 계산중입니다.</span><br/>
                         잠시만 더 기다려주세요!
                     </span>
                 </div>
+                <button onClick={()=>{StepChagere()}}>임시 다음으로</button>
         </div>)
     }
 
     function Step4() {
-        function StepChagere() {
+        function StepChagere() {    
             // 조건
             setStep(4);
         }

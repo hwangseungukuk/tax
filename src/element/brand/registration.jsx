@@ -12,6 +12,8 @@ export default function registration()
     var [step, setStep] = useState(0);
     var dots = []
 
+    Func.BackBtnClear()
+
     for(var i= 0; i < 3; i++)
     {
         if(i == step) { dots.push("tab-num active"); continue; }

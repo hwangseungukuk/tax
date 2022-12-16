@@ -4,6 +4,7 @@ import * as Func from '@/element/brand/Components/Func.jsx'
 
 export default function qa()
 {
+    Func.BackBtnClear();
     return(<section className="pop-section">
     <div className="max-container">
                 { Func.BackBtn() }

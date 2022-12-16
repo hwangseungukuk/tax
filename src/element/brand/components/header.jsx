@@ -3,7 +3,8 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import "@/style/index.css"
 import Logo from '@/assert/icon/logo.svg'
 import LogoW from '@/assert/icon/logo-w.svg'
-import ArrowBack from "@/assert/icon/arrow-back.svg"
+import * as Func from '@/element/brand/Components/Func.jsx'
+import Dummy from '@/Dummy.json' // 임시 데이터 
 
 export default function Header()
 {
@@ -21,16 +22,18 @@ export default function Header()
                 <div className="logo-box" onClick={()=>Nav("/")}>
                         <img src= {Logo} className="logo" />
                         <img src= {LogoW} className="logo-w" />
-                </div>
+                </div> 
                 <div className="header-btn-box">
-                    <button className="back-btn pc-hide" onClick={()=>{ history.go(-1); }}> 
-                        <img src= {ArrowBack} /> 
-                    </button>
-                    <button className="login-btn line-btn purple-btn mobile-hide" > <a href="requestForRefund">로그인</a> </button>
-                    <span className="logout-btn-box mobile-hide">
-                        <a href="myInfo">내회사정보</a> 
-                        <button className="logout-btn line-btn purple-btn mobile-hide">로그아웃</button>
-                    </span>
+                    { Func.BackBtn("mobile") }
+                    {
+                        Dummy.Login == false 
+                        ?<button className="login-btn line-btn purple-btn mobile-hide" onClick={()=>Nav("requestForRefund")}>로그인</button>
+                        :<span className="logout-btn-box mobile-hide">
+                            <div onClick={()=>Nav("myInfo")}>내회사정보</div>
+                            <button className="logout-btn line-btn purple-btn mobile-hide">로그아웃</button>
+                        </span>
+                    }
+
                 </div>
                 <div className={`${gnb}`} onClick = {()=> { GnbChage()} }>
                     <div className="mobile-gnb-btn">
@@ -50,10 +53,15 @@ export default function Header()
                         <li className="gnb-li pc-hide" onClick={()=>Nav("qa")}>문의하기</li>
                         <li className="gnb-li pc-hide" onClick={()=>Nav("termsOfService")}>개인정보취급방침</li>
                         <li className="gnb-li pc-hide" onClick={()=>Nav("privacyStatement")}>서비스 이용약관</li>
-                        <li className="gnb-li pc-hide login-hide" onClick={()=>Nav("requestForRefund")}>로그인</li>
-                        <li className="gnb-li pc-hide" onClick={()=>Nav("myInfo")}>내회사정보
-                            <button className="logout-btn purple-btn">로그아웃</button>
-                        </li>
+
+                        {
+                            Dummy.Login == false
+                            ? <li className="gnb-li pc-hide login-hide" onClick={()=>Nav("requestForRefund")}>로그인</li>
+                            : <li className="gnb-li pc-hide">
+                                <div onClick={()=>Nav("myInfo")}>내회사정보</div>
+                                <button className="logout-btn purple-btn">로그아웃</button>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

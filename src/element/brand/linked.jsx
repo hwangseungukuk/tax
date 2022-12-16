@@ -8,6 +8,7 @@ import TotalLogo from "@/assert/icon/total-logo.svg"
 
 export default function linked()
 {
+    Func.BackBtnClear()
     return(<div>
         <section className="pop-section">
             <div className="max-container">

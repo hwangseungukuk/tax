@@ -4,6 +4,7 @@ import * as Func from '@/element/brand/Components/Func.jsx'
 
 export default function termsOfService()
 {
+    Func.BackBtnClear()
     return(<div className="main">
         <section className="pop-section">
             <div className="max-container">
