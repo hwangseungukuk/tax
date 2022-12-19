@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom';
+import React, { useState } from 'react'
+import { useRecoilState } from 'recoil';
 
-import * as Func from '@/element/brand/Components/Func.jsx'
-import LeftArrow from "@/assert/icon/left-arrow.svg"
 import RightArrow from "@/assert/icon/right-arrow.svg"
 import New from '@/assert/icon/new.svg'
+
+import * as BackBtn from '@/Element/brand/Components/BackBtn.jsx'
 
 import Dummy from '@/Dummy.json'
 
 export default function Notice()
 {
-    var [look, setLook] = useState(null);
+    var [look, setLook] =  useRecoilState(BackBtn.State)
     var [list, setList] = useState(10);
     var dataBase = Dummy.Notice.slice(0,list);
     var num = 0;
-
-    look != null? Func.SetBackBtn(setLook,null) : Func.BackBtnClear()
 
     const ListVulme = () => {
         if(list == Dummy.Notice.length) { return; }
@@ -49,7 +47,7 @@ export default function Notice()
     return(<div>
         <section className="pop-section">
             <div className="max-container">
-                { Func.BackBtn() }
+                { BackBtn.On() }
                 <div className="pop-section-contents">
                         <span className="pop-title"> 공지사항</span>
                         <div className="pop-max-contents">
@@ -58,5 +56,5 @@ export default function Notice()
                 </div>
             </div>
         </section>
-    <Outlet/></div>);
+    </div>);
 }

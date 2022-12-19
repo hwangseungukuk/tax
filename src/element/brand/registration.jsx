@@ -1,23 +1,26 @@
 import React, { useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { useRecoilState } from 'recoil';
 
-
-import * as Func from '@/element/brand/Components/Func.jsx'
 import Dots from '@/assert/icon/dots.svg'
 import Guide from '@/assert/icon/guide.svg'
 
-///Tax/assert/icon/guide.svg
+import * as BackBtn from '@/Element/brand/Components/BackBtn.jsx'
+
 export default function registration()
 {
-    var [step, setStep] = useState(0);
+    var [step, setStep] = useRecoilState(BackBtn.State);
     var dots = []
 
-    Func.BackBtnClear()
-
-    for(var i= 0; i < 3; i++)
-    {
-        if(i == step) { dots.push("tab-num active"); continue; }
-        dots.push("tab-num");
+    for(var i= 0; i < 3; i++) {
+        if(step == null) { 
+            switch(i) { 
+                case 0:  dots.push("tab-num active"); break 
+                default: dots.push("tab-num"); break
+            }
+        }
+        else {
+            if(i == step) { dots.push("tab-num active"); } else { dots.push("tab-num") }
+        }
     }
 
     function Step0() { 
@@ -100,7 +103,7 @@ export default function registration()
     return(<div>
         <section className="pop-section">
             <div className="max-container">
-                { Func.BackBtn() }
+                { BackBtn.On() }
                 <div className="pop-section-contents">
                     <div className="tab-state">
                         <span className= {`${dots[0]}`}>1</span>
@@ -111,10 +114,10 @@ export default function registration()
                     </div>
 
                     <div className="pop-max-contents"> 
-                        {{ 0: Step0(), 1: Step1(), 2: Step2() }[step]} 
+                        {{ null: Step0(), 1: Step1(), 2: Step2() }[step]} 
                     </div>
                 </div>
            </div>
         </section>
-    <Outlet/></div>);
+    </div>);
 }

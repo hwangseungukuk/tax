@@ -1,15 +1,15 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
 
-import * as Func from '@/element/brand/Components/Func.jsx'
+import * as BackBtn from '@/Element/brand/Components/BackBtn.jsx'
 
 export default function myInfo()
 {
-    Func.BackBtnClear()
+    BackBtn.StateClear()
     return(<div>
         <section className="pop-section">
             <div className="max-container">
-                { Func.BackBtn() }
+                { BackBtn.On() }
                 <div className="pop-section-contents">
                     <span className="pop-title">내정보</span>
                     <form className="pop-max-contents">

@@ -1,14 +1,14 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
-import * as Func from '@/element/brand/Components/Func.jsx'
+import * as BackBtn from '@/Element/brand/Components/BackBtn.jsx'
 
 export default function termsOfService()
 {
-    Func.BackBtnClear()
+    BackBtn.StateClear()
     return(<div className="main">
         <section className="pop-section">
             <div className="max-container">
-                { Func.BackBtn() }
+                { BackBtn.On() }
                 <div className="pop-section-contents">
                     <span className="pop-title">서비스이용약관</span>
                         <div className="pop-max-contents">

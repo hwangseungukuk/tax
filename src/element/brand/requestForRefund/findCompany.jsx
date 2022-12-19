@@ -1,21 +1,27 @@
-import React, { useState } from 'react'
-import { Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useRecoilState } from 'recoil'
 
-import * as Func from '@/element/brand/Components/Func.jsx'
 import Dots from '@/assert/icon/dots.svg'
+
+import * as BackBtn from '@/Element/brand/Components/BackBtn.jsx'
 
 
 export default function FindCompany()
 {
-    var [ step, setStep ] = useState(0); 
+    var [ step, setStep ] = useRecoilState(BackBtn.State); 
     var dots = []
     var count = 0;
 
-    Func.BackBtnClear()
-
     for(var i= 0; i < 5; i++) {
-        if(i == step) { dots.push("tab-num active"); }
-        else { dots.push("tab-num") }
+        if(step == null) { 
+            switch(i) { 
+                case 0:  dots.push("tab-num active"); break 
+                default: dots.push("tab-num"); break
+            }
+        }
+        else {
+            if(i == step) { dots.push("tab-num active"); } else { dots.push("tab-num") }
+        }
     }
 
     const DotsList = dots.map((index,key)=>{
@@ -299,11 +305,11 @@ export default function FindCompany()
     return(<div className="main">
         <section className="pop-section">
             <div className="max-container">
-                { Func.BackBtn() }
+                { BackBtn.On() }
                 <div className='pop-section-contents'>
                     <div className="tab-state"> {DotsList} </div>
                 </div>
-                {{ 0: Step1(), 1: Step2(), 2: Step3(), 3: Step4(), 4:Step5() }[step]} 
+                {{ null: Step1(), 1: Step2(), 2: Step3(), 3: Step4(), 4:Step5() }[step]} 
             </div>
         </section>
     </div>);

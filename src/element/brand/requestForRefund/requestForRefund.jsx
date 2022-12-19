@@ -1,15 +1,18 @@
-import { Outlet, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 
-import * as Func from '@/element/brand/Components/Func.jsx'
-import LeftArrow from "@/assert/icon/left-arrow.svg"
+import * as BackBtn from '@/Element/brand/Components/BackBtn.jsx'
 
 export default function RequestForRefund()
 {
-    var [kakao, setKakao] = useState(null)
+    var [kakao, setKakao] = useRecoilState(BackBtn.State)
     var navigate = useNavigate();
 
-    if(kakao == null) { Func.BackBtnClear() } else { Func.SetBackBtn(setKakao,null) }
+
+    useEffect(()=>{
+        BackBtn.StateClear();
+    },[])
 
     function KakaoBtn()
     {
@@ -36,11 +39,11 @@ export default function RequestForRefund()
     return( <div>
         <section className="pop-section">
             <div className="max-container">
-                { Func.BackBtn() }
+                { BackBtn.On() }
                 { kakao == null? Main() : Sub() }
             </div>  
         </section>
-    <Outlet/></div> );
+    </div> );
 }
 
 

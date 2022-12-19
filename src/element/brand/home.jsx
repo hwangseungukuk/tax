@@ -10,6 +10,8 @@ import logo_w from '@/assert/icon/logo-w.svg';
 import "@/style/index.css"
 import Dummy from '@/Dummy.json' // 임시 데이터 
 
+// 헤더 비율이 뭔가이상한데? 
+
 export default function Home()
 {
     var navigate = useNavigate();

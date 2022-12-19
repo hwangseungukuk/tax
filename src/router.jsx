@@ -13,6 +13,7 @@ import MyInfo from '@/Element/brand/MyInfo.jsx'
 import RequestForRefund from '@/Element/brand/RequestForRefund/RequestForRefund.jsx'
 import FindCompany from '@/Element/brand/RequestForRefund/FindCompany.jsx'
 import Notice from '@/Element/brand/Notice.jsx'
+import { RecoilRoot } from 'recoil'
 
 const Router = createBrowserRouter([
   { path: "", element: <Home/> },
@@ -36,9 +37,9 @@ const Router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-    <RouterProvider router= { Router } />
-  // </React.StrictMode>
+    <RecoilRoot>
+      <RouterProvider router= { Router } />
+    </RecoilRoot>
 )
 
 // 공지사항-> 계속 아래로 내려가는식으로 작성되는지 아님 페이지를 나눌지
