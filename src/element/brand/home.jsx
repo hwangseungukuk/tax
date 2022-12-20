@@ -9,6 +9,7 @@ import logo from "@/assert/icon/logo.svg"
 import logo_w from '@/assert/icon/logo-w.svg';
 import "@/style/index.css"
 import Dummy from '@/Dummy.json' // 임시 데이터 
+import * as Login from '@/Element/Login.jsx'
 
 // 헤더 비율이 뭔가이상한데? 
 
@@ -57,7 +58,7 @@ export default function Home()
                         <li className="gnb-li mobile-hide" onClick={()=>{Nav("privacyStatement")}}>개인정보취급방침</li>
                         <li className="gnb-li mobile-hide" onClick={()=>{Nav("termsOfService")}}>이용약관</li>
                         {
-                            Dummy.Login == false 
+                            Login.Check() == false 
                             ? <li className="gnb-li pc-hide login-hide" onClick={()=>{Nav("requestForRefund")}}>로그인</li>
                             : <li className="gnb-li pc-hide" onClick={()=>Nav("myInfo")}>내회사정보
                                 <button className="logout-btn purple-btn">로그아웃</button>

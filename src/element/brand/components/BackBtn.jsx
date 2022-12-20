@@ -4,15 +4,13 @@ import { atom, useRecoilState, useResetRecoilState } from 'recoil';
 
 export const State = atom({key: 'Backbtn', default : null })
 
-export function StateClear() { useResetRecoilState(State) }
+export function StateClear(set = null) { set == null? useResetRecoilState(State) : set(null) }
 
 export function On(Mode){
 
     var [state, setState] = useRecoilState(State)
 
-    function Event(){
-        if(state == null) { history.go(-1) } else { setState(null) }
-    }
+    function Event(){ if(state == null) { history.go(-1) } else { setState(null) } }
 
     function MobileUi() { return(
         <div className="header-btn-box">
@@ -31,7 +29,6 @@ export function On(Mode){
     )}
 
     return( <div > { Mode == "mobile"? MobileUi() : PcUi() } </div>)
-
 }
 
 

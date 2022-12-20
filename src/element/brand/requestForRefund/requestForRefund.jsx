@@ -1,27 +1,27 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import * as BackBtn from '@/Element/brand/Components/BackBtn.jsx'
+import * as Login from '@/Element/Login.jsx'
 
 export default function RequestForRefund()
 {
     var [kakao, setKakao] = useRecoilState(BackBtn.State)
+    var setLoginVision = useSetRecoilState(Login.State)
     var navigate = useNavigate();
 
-
-    useEffect(()=>{
-        BackBtn.StateClear();
-    },[])
+    useEffect(()=>{ BackBtn.StateClear(setKakao) },[])
 
     function KakaoBtn()
     {
+        setLoginVision(kakao)
         navigate("/brand/requestForRefund/findCompany")
     }
 
     function Main() { return(<div className='pop-section-contents'>
         <span className="pop-title">
-            5분이면 5년간<span className="purple">더 낸 세금을</span><br/>
+            5분이면 5년간<span className="purple"> 더 낸 세금을</span><br/>
             바로 찾을 수 있습니다.
         </span>
         <button className="sub-btn btn" onClick={()=>{setKakao("Corporation")}}>법인사업자로 환급금 찾기</button>

@@ -6,7 +6,7 @@ import LogoW from '@/assert/icon/logo-w.svg'
 
 import "@/style/index.css"
 import * as BackBtn from '@/Element/brand/Components/BackBtn.jsx'
-import Dummy from '@/Dummy.json' // 임시 데이터 
+import * as Login from '@/Element/Login.jsx'
 
 export default function Header()
 {
@@ -29,7 +29,7 @@ export default function Header()
                 <div className="header-btn-box">
                     { BackBtn.On("mobile")  } 
                     {
-                        Dummy.Login == false 
+                        Login.Check() == false 
                         ?<button className="login-btn line-btn purple-btn mobile-hide" onClick={()=>Nav("requestForRefund")}>로그인</button>
                         :<span className="logout-btn-box mobile-hide">
                             <div onClick={()=>Nav("myInfo")}>내회사정보</div>
@@ -58,7 +58,7 @@ export default function Header()
                         <li className="gnb-li pc-hide" onClick={()=>Nav("privacyStatement")}>서비스 이용약관</li>
 
                         {
-                            Dummy.Login == false
+                            Login.Check() == false
                             ? <li className="gnb-li pc-hide login-hide" onClick={()=>Nav("requestForRefund")}>로그인</li>
                             : <li className="gnb-li pc-hide">
                                 <div onClick={()=>Nav("myInfo")}>내회사정보</div>

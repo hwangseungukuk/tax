@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 
 import Dots from '@/assert/icon/dots.svg'
-
 import * as BackBtn from '@/Element/brand/Components/BackBtn.jsx'
-
 
 export default function FindCompany()
 {
@@ -12,6 +10,8 @@ export default function FindCompany()
     var dots = []
     var count = 0;
 
+    useEffect(()=>{ BackBtn.StateClear(setStep) },[])
+    
     for(var i= 0; i < 5; i++) {
         if(step == null) { 
             switch(i) { 

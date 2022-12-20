@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRecoilState } from 'recoil';
 
 import Dots from '@/assert/icon/dots.svg'
@@ -10,6 +10,9 @@ export default function registration()
 {
     var [step, setStep] = useRecoilState(BackBtn.State);
     var dots = []
+
+    
+    useEffect(()=>{ BackBtn.StateClear(setStep) },[])
 
     for(var i= 0; i < 3; i++) {
         if(step == null) { 
